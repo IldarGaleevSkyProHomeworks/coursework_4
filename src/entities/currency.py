@@ -2,6 +2,7 @@ from src.abstractions.currency_provider import CurrencyProvider
 
 
 class Currency:
+    base_currency = 'RUB'
     currency_provider: CurrencyProvider = None
     """ Currency convert provider """
 
@@ -33,6 +34,21 @@ class Currency:
 
         code = CurrencyProvider.currency_code_parse(code)
         return self.currency_provider.convert_currency(self.value, self.code, code)
+
+    def __eq__(self, other):
+        if issubclass(other.__class__, self.__class__):
+            return self[self.base_currency] == other[self.base_currency]
+        return False
+
+    def __lt__(self, other):
+        if issubclass(other.__class__, self.__class__):
+            return self[self.base_currency] < other[self.base_currency]
+        raise TypeError("Can`t compare")
+
+    def __le__(self, other):
+        if issubclass(other.__class__, self.__class__):
+            return self[self.base_currency] <= other[self.base_currency]
+        raise TypeError("Can`t compare")
 
     @property
     def value(self):
