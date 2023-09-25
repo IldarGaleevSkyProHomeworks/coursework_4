@@ -1,0 +1,1 @@
+from src.providers.currency_provider_cbr import CurrencyProviderCBR
