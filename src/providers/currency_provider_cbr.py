@@ -1,6 +1,6 @@
 from src.abstractions import CurrencyProvider
 from datetime import datetime, timedelta
-from src.providers.base_http_request_provider import BaseHttpRequestProvider
+from src.providers.http_request_provider_base import HttpRequestProviderBase
 
 
 class CurrencyProviderCBR(CurrencyProvider):
@@ -9,7 +9,7 @@ class CurrencyProviderCBR(CurrencyProvider):
 
     _last_update_date = datetime.fromtimestamp(0)
 
-    http_request_provider = BaseHttpRequestProvider
+    http_request_provider = HttpRequestProviderBase
 
     base_curr = 'RUB'
     data_update_interval = timedelta(days=1)
