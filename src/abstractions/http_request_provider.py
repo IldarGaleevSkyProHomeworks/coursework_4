@@ -6,3 +6,7 @@ class HttpRequestProvider(ABC):
     @abstractmethod
     def get_data_dict(cls, url: str, **kwargs) -> dict:
         pass
+
+
+class HttpRequested:
+    http_request_provider: HttpRequestProvider = None

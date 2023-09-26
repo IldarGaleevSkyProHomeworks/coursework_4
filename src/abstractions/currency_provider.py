@@ -1,11 +1,9 @@
 from abc import abstractmethod, ABC
 
-from src.abstractions.http_request_provider import HttpRequestProvider
+from src.abstractions.http_request_provider import HttpRequested
 
 
-class CurrencyProvider(ABC):
-
-    http_request_provider: HttpRequestProvider = None
+class CurrencyProvider(ABC, HttpRequested):
 
     @classmethod
     @abstractmethod
