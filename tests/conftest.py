@@ -16,5 +16,10 @@ def mocked_currency_provider():
 
 
 @pytest.fixture
-def mocked_currency():
+def mocked_currency(mocked_currency_provider):
+    default_currency_provider = Currency.currency_provider
     Currency.currency_provider = CurrencyProviderCBR
+
+    yield Currency
+
+    Currency.currency_provider = default_currency_provider

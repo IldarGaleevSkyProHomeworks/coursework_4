@@ -4,7 +4,7 @@ from src.entities import Currency
 
 
 @pytest.fixture
-def currency_fixture(mocked_currency_provider, mocked_currency):
+def currency_fixture(mocked_currency):
     return Currency(2, 'cu1')
 
 
@@ -27,7 +27,7 @@ def test_unassigned_currency_provider(currency_fixture):
         _ = currency_fixture['cu1']
 
 
-def test_currency_compare(mocked_currency_provider, mocked_currency):
+def test_currency_compare(mocked_currency):
     currency1 = Currency(2, 'cu1')
     currency2 = Currency(1, 'cu2')
     currency3 = Currency(1, 'cu1')
