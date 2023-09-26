@@ -1,6 +1,6 @@
 from src.abstractions import CurrencyProvider
 from datetime import datetime, timedelta
-from requests import get
+from src.providers.base_http_request_provider import BaseHttpRequestProvider
 
 
 class CurrencyProviderCBR(CurrencyProvider):
@@ -9,6 +9,8 @@ class CurrencyProviderCBR(CurrencyProvider):
 
     _last_update_date = datetime.fromtimestamp(0)
 
+    http_request_provider = BaseHttpRequestProvider
+
     base_curr = 'RUB'
     data_update_interval = timedelta(days=1)
     request_timeout = 3
@@ -16,7 +18,7 @@ class CurrencyProviderCBR(CurrencyProvider):
     @classmethod
     def update_data(cls):
         try:
-            cls.__currency_data = get(url=cls.__url, timeout=cls.request_timeout).json
+            cls.__currency_data = cls.http_request_provider.get_data_dict(url=cls.__url, timeout=cls.request_timeout)
             cls.__last_update_date = datetime.now()
         except Exception as e:
             raise Exception("Currency data update error") from e

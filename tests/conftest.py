@@ -2,29 +2,17 @@ from src.providers import CurrencyProviderCBR
 from src.entities import Currency
 import pytest
 
+from tests.utils.mock_currency_http_request_provider import MockCurrencyHttpRequestProvider
+
 
 @pytest.fixture
-def mocked_currency_provider(mocker):
-    fake_data = {
-        "Valute": {
-            "CU1": {
-                "Nominal": 1,
-                "Value": 2
-            },
-            "CU2": {
-                "Nominal": 6,
-                "Value": 24
-            },
-            "CU3": {
-                "Nominal": 1,
-                "Value": 8
-            }
-        }
-    }
+def mocked_currency_provider():
+    default_provider = CurrencyProviderCBR.http_request_provider
+    CurrencyProviderCBR.http_request_provider = MockCurrencyHttpRequestProvider
 
-    mocker.patch("src.providers.currency_provider_cbr.CurrencyProviderCBR.get_data", return_value=fake_data)
+    yield CurrencyProviderCBR
 
-    return CurrencyProviderCBR
+    CurrencyProviderCBR.http_request_provider = default_provider
 
 
 @pytest.fixture
