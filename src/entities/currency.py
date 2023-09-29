@@ -57,3 +57,7 @@ class Currency:
     @property
     def code(self):
         return self._currency_code
+
+
+MIN_CURRENCY = Currency(0.0, Currency.base_currency)
+MAX_CURRENCY = Currency(float('inf'), Currency.base_currency)

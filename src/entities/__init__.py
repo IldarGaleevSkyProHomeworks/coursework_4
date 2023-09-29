@@ -1,3 +1,2 @@
-from src.entities.currency import Currency
-from src.entities.vacancy import Vacancy
-from src.entities.vacancy import VacancyAttributes
+from src.entities.currency import Currency, MIN_CURRENCY, MAX_CURRENCY
+from src.entities.vacancy import Vacancy, VacancyAttributes, Salary
