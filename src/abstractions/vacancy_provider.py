@@ -2,11 +2,19 @@ from abc import abstractmethod, ABC
 
 from src.abstractions.http_request_provider import HttpRequested
 from src.entities.vacancy import Vacancy
+from typing import NamedTuple
+
+
+class SearchResult(NamedTuple):
+    result_list: list[Vacancy]
+    total_pages: int
+    total_results: int
+    page_num: int
 
 
 class VacancyProvider(ABC, HttpRequested):
     @abstractmethod
-    def get_vacancies(self, search_text=None, page_num=None, per_page=None, **kwargs) -> list[Vacancy]:
+    def get_vacancies(self, search_text=None, page_num=None, per_page=None, **kwargs) -> SearchResult:
         """
         Get vacancies list
 

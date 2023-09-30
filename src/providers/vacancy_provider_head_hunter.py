@@ -1,5 +1,5 @@
 import src.constants as const
-from src.abstractions import VacancyProvider
+from src.abstractions import VacancyProvider, SearchResult
 from src.entities import Vacancy, Salary, Currency
 from src.providers.http_request_provider_base import HttpRequestProviderBase
 
@@ -22,7 +22,7 @@ class VacancyProviderHeadHunter(VacancyProvider):
         except Exception as ex:
             raise Exception("Head Hunter API request error") from ex
 
-    def get_vacancies(self, **kwargs) -> list[Vacancy]:
+    def get_vacancies(self, **kwargs) -> SearchResult:
 
         params = {}
 
@@ -63,7 +63,12 @@ class VacancyProviderHeadHunter(VacancyProvider):
 
             result.append(vacancy)
 
-        return result
+        return SearchResult(
+            result_list=result,
+            total_results=data.get('found', 0),
+            total_pages=data.get('pages', 0),
+            page_num=data.get('page', 0)
+        )
 
     @property
     def provider_name(self):

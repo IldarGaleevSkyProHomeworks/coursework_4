@@ -2,16 +2,18 @@ import logging
 import os
 
 import src.constants as const
-from src.abstractions import VacancyProvider
+from src.abstractions import VacancyProvider, SearchResult
 from src.entities import Vacancy, Salary, Currency
 from src.providers.http_request_provider_base import HttpRequestProviderBase
 
 
 class VacancyProviderSuperjob(VacancyProvider):
-    module_logger = logging.getLogger('VacancyProviderSuperjob')
-
-    http_request_provider = HttpRequestProviderBase
+    DEFAULT_PER_PAGE = 20
     API_KEY = os.getenv('API_KEY_SUPERJOB')
+
+    module_logger = logging.getLogger('VacancyProviderSuperjob')
+    http_request_provider = HttpRequestProviderBase
+
     _base_url = 'https://api.superjob.ru/2.0'
     _generic_headers = {
         "User-Agent": f"{const.APP_NAME}/{const.APP_VER} ({const.APP_EMAIL})",
@@ -28,10 +30,10 @@ class VacancyProviderSuperjob(VacancyProvider):
         except Exception as ex:
             raise Exception("Head Hunter API request error") from ex
 
-    def get_vacancies(self, **kwargs) -> list[Vacancy]:
+    def get_vacancies(self, **kwargs) -> SearchResult:
         if self.API_KEY is None:
             self.module_logger.warning('Superjob API-Key not changed!')
-            return []
+            return SearchResult([], 0, 0, 0)
 
         params = {}
 
@@ -48,12 +50,13 @@ class VacancyProviderSuperjob(VacancyProvider):
 
         result = []
         for response_item in data['objects']:
-
             currency_code = response_item['currency']
 
             salary = Salary(
-                salary_from=None if response_item['payment_from'] == 0 else Currency(response_item['payment_from'], currency_code),
-                salary_to=None if response_item['payment_to'] == 0 else Currency(response_item['payment_to'], currency_code),
+                salary_from=None if response_item['payment_from'] == 0 else Currency(response_item['payment_from'],
+                                                                                     currency_code),
+                salary_to=None if response_item['payment_to'] == 0 else Currency(response_item['payment_to'],
+                                                                                 currency_code),
             )
 
             vacancy = Vacancy(
@@ -66,8 +69,23 @@ class VacancyProviderSuperjob(VacancyProvider):
 
             result.append(vacancy)
 
-        return result
+        total = int(data.get('total', 0))
+
+        if per_page is None:
+            per_page = self.DEFAULT_PER_PAGE
+
+        if page_num is None:
+            page_num = 0
+
+        page_count = round(total / per_page)
+
+        return SearchResult(
+            result_list=result,
+            total_results=total,
+            total_pages=page_count,
+            page_num=page_num
+        )
 
     @property
     def provider_name(self):
-        return "Head Hunter"
+        return "Superjob"
