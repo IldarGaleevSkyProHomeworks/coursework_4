@@ -1,0 +1,317 @@
+{
+    "items": [
+        {
+            "id": "87336096",
+            "premium": false,
+            "name": "Backend Developer",
+            "department": null,
+            "has_test": false,
+            "response_letter_required": false,
+            "area": {
+                "id": "160",
+                "name": "Алматы",
+                "url": "https://api.hh.ru/areas/160"
+            },
+            "salary": null,
+            "type": {
+                "id": "open",
+                "name": "Открытая"
+            },
+            "address": null,
+            "response_url": null,
+            "sort_point_distance": null,
+            "published_at": "2023-09-26T12:03:52+0300",
+            "created_at": "2023-09-26T12:03:52+0300",
+            "archived": false,
+            "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=87336096",
+            "show_logo_in_search": null,
+            "insider_interview": null,
+            "url": "https://api.hh.ru/vacancies/87336096?host=hh.ru",
+            "alternate_url": "https://hh.ru/vacancy/87336096",
+            "relations": [],
+            "employer": {
+                "id": "5745349",
+                "name": "IBA Astana Dev (АйБиЭй Астана Дев)",
+                "url": "https://api.hh.ru/employers/5745349",
+                "alternate_url": "https://hh.ru/employer/5745349",
+                "logo_urls": {
+                    "240": "https://hhcdn.ru/employer-logo/4194485.jpeg",
+                    "90": "https://hhcdn.ru/employer-logo/4194484.jpeg",
+                    "original": "https://hhcdn.ru/employer-logo-original/938485.jpg"
+                },
+                "vacancies_url": "https://api.hh.ru/vacancies?employer_id=5745349",
+                "accredited_it_employer": false,
+                "trusted": true
+            },
+            "snippet": {
+                "requirement": "Language building complex systems, and see you have been working with <highlighttext>Python</highlighttext> for. The last four years or more. ",
+                "responsibility": null
+            },
+            "contacts": null,
+            "schedule": null,
+            "working_days": [],
+            "working_time_intervals": [],
+            "working_time_modes": [],
+            "accept_temporary": false,
+            "professional_roles": [
+                {
+                    "id": "96",
+                    "name": "Программист, разработчик"
+                }
+            ],
+            "accept_incomplete_resumes": false,
+            "experience": {
+                "id": "noExperience",
+                "name": "Нет опыта"
+            },
+            "employment": {
+                "id": "full",
+                "name": "Полная занятость"
+            },
+            "adv_response_url": null,
+            "is_adv_vacancy": false
+        },
+        {
+            "id": "86297660",
+            "premium": false,
+            "name": "Junior Python Developer",
+            "department": null,
+            "has_test": false,
+            "response_letter_required": false,
+            "area": {
+                "id": "2",
+                "name": "Санкт-Петербург",
+                "url": "https://api.hh.ru/areas/2"
+            },
+            "salary": {
+                "from": 1300,
+                "to": null,
+                "currency": "USD",
+                "gross": false
+            },
+            "type": {
+                "id": "open",
+                "name": "Открытая"
+            },
+            "address": null,
+            "response_url": null,
+            "sort_point_distance": null,
+            "published_at": "2023-09-06T05:06:29+0300",
+            "created_at": "2023-09-06T05:06:29+0300",
+            "archived": false,
+            "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=86297660",
+            "show_logo_in_search": null,
+            "insider_interview": null,
+            "url": "https://api.hh.ru/vacancies/86297660?host=hh.ru",
+            "alternate_url": "https://hh.ru/vacancy/86297660",
+            "relations": [],
+            "employer": {
+                "id": "3551849",
+                "name": "FinSTC Software LLC",
+                "url": "https://api.hh.ru/employers/3551849",
+                "alternate_url": "https://hh.ru/employer/3551849",
+                "logo_urls": {
+                    "240": "https://hhcdn.ru/employer-logo/2669950.png",
+                    "90": "https://hhcdn.ru/employer-logo/2669949.png",
+                    "original": "https://hhcdn.ru/employer-logo-original/557119.png"
+                },
+                "vacancies_url": "https://api.hh.ru/vacancies?employer_id=3551849",
+                "accredited_it_employer": false,
+                "trusted": true
+            },
+            "snippet": {
+                "requirement": "Базовые: <highlighttext>Python</highlighttext>. Знания в SQL (MS SQL / PL SQL). Английский (средний, профессиональная терминология). Будет плюсом: Azure. Английский (разговорный). Знание Git. ",
+                "responsibility": "В рамках работы вы будете выполнять следующие задачи: Написание кода на <highlighttext>Python</highlighttext> и рулов (наборов команд) в формате XML/JSON..."
+            },
+            "contacts": null,
+            "schedule": null,
+            "working_days": [],
+            "working_time_intervals": [],
+            "working_time_modes": [],
+            "accept_temporary": false,
+            "professional_roles": [
+                {
+                    "id": "96",
+                    "name": "Программист, разработчик"
+                }
+            ],
+            "accept_incomplete_resumes": false,
+            "experience": {
+                "id": "noExperience",
+                "name": "Нет опыта"
+            },
+            "employment": {
+                "id": "full",
+                "name": "Полная занятость"
+            },
+            "adv_response_url": null,
+            "is_adv_vacancy": false
+        },
+        {
+            "id": "86626961",
+            "premium": false,
+            "name": "Стажер-тестировщик QA",
+            "department": null,
+            "has_test": false,
+            "response_letter_required": false,
+            "area": {
+                "id": "1",
+                "name": "Москва",
+                "url": "https://api.hh.ru/areas/1"
+            },
+            "salary": null,
+            "type": {
+                "id": "open",
+                "name": "Открытая"
+            },
+            "address": null,
+            "response_url": null,
+            "sort_point_distance": null,
+            "published_at": "2023-09-12T18:06:51+0300",
+            "created_at": "2023-09-12T18:06:51+0300",
+            "archived": false,
+            "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=86626961",
+            "show_logo_in_search": null,
+            "insider_interview": null,
+            "url": "https://api.hh.ru/vacancies/86626961?host=hh.ru",
+            "alternate_url": "https://hh.ru/vacancy/86626961",
+            "relations": [],
+            "employer": {
+                "id": "3428160",
+                "name": "HardQode",
+                "url": "https://api.hh.ru/employers/3428160",
+                "alternate_url": "https://hh.ru/employer/3428160",
+                "logo_urls": {
+                    "90": "https://hhcdn.ru/employer-logo/6242902.jpeg",
+                    "original": "https://hhcdn.ru/employer-logo-original/1155612.jpg",
+                    "240": "https://hhcdn.ru/employer-logo/6242903.jpeg"
+                },
+                "vacancies_url": "https://api.hh.ru/vacancies?employer_id=3428160",
+                "accredited_it_employer": true,
+                "trusted": true
+            },
+            "snippet": {
+                "requirement": "Базовое понимание основных этапов и принципов тестирования, знакомство с теорией тестирования. Базовые знания <highlighttext>Python</highlighttext>. Понимание жизненного цикла разработки и тестирования...",
+                "responsibility": "Участие в разработке EdTech платформы. Большое количество знаний. Ручное и Авто-тестирование."
+            },
+            "contacts": null,
+            "schedule": null,
+            "working_days": [],
+            "working_time_intervals": [
+                {
+                    "id": "from_four_to_six_hours_in_a_day",
+                    "name": "Можно работать сменами по 4–6 часов в день"
+                }
+            ],
+            "working_time_modes": [
+                {
+                    "id": "start_after_sixteen",
+                    "name": "Можно начинать работать после 16:00"
+                }
+            ],
+            "accept_temporary": true,
+            "professional_roles": [
+                {
+                    "id": "124",
+                    "name": "Тестировщик"
+                }
+            ],
+            "accept_incomplete_resumes": false,
+            "experience": {
+                "id": "noExperience",
+                "name": "Нет опыта"
+            },
+            "employment": {
+                "id": "probation",
+                "name": "Стажировка"
+            },
+            "adv_response_url": null,
+            "is_adv_vacancy": false
+        },
+        {
+            "id": "87512158",
+            "premium": false,
+            "name": "Начинающий Data Scientist (Computer Vision)",
+            "department": null,
+            "has_test": false,
+            "response_letter_required": false,
+            "area": {
+                "id": "11",
+                "name": "Барнаул",
+                "url": "https://api.hh.ru/areas/11"
+            },
+            "salary": {
+                "from": 40000,
+                "to": null,
+                "currency": "RUR",
+                "gross": false
+            },
+            "type": {
+                "id": "open",
+                "name": "Открытая"
+            },
+            "address": null,
+            "response_url": null,
+            "sort_point_distance": null,
+            "published_at": "2023-09-29T10:35:10+0300",
+            "created_at": "2023-09-29T10:35:10+0300",
+            "archived": false,
+            "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=87512158",
+            "show_logo_in_search": null,
+            "insider_interview": null,
+            "url": "https://api.hh.ru/vacancies/87512158?host=hh.ru",
+            "alternate_url": "https://hh.ru/vacancy/87512158",
+            "relations": [],
+            "employer": {
+                "id": "4177614",
+                "name": "ДИБИЭЙ",
+                "url": "https://api.hh.ru/employers/4177614",
+                "alternate_url": "https://hh.ru/employer/4177614",
+                "logo_urls": {
+                    "90": "https://hhcdn.ru/employer-logo/6007737.png",
+                    "240": "https://hhcdn.ru/employer-logo/6007738.png",
+                    "original": "https://hhcdn.ru/employer-logo-original/1096780.png"
+                },
+                "vacancies_url": "https://api.hh.ru/vacancies?employer_id=4177614",
+                "accredited_it_employer": false,
+                "trusted": true
+            },
+            "snippet": {
+                "requirement": "Знание и опыт использования ML-фреймворков: pytorch; torchvision, mmlab (mmdetection, mmsegmentation и т.д.). Знание <highlighttext>Python</highlighttext>. Опыт работы с Git. ",
+                "responsibility": "Растрескивание деревянной опоры и траверсы. Загнивание деревянной опоры и траверсы. Отсутствие вязки. Оголение арматуры."
+            },
+            "contacts": null,
+            "schedule": null,
+            "working_days": [],
+            "working_time_intervals": [],
+            "working_time_modes": [],
+            "accept_temporary": false,
+            "professional_roles": [
+                {
+                    "id": "165",
+                    "name": "Дата-сайентист"
+                }
+            ],
+            "accept_incomplete_resumes": false,
+            "experience": {
+                "id": "noExperience",
+                "name": "Нет опыта"
+            },
+            "employment": {
+                "id": "full",
+                "name": "Полная занятость"
+            },
+            "adv_response_url": null,
+            "is_adv_vacancy": false
+        }
+    ],
+    "found": 11615,
+    "pages": 500,
+    "per_page": 4,
+    "page": 0,
+    "clusters": null,
+    "arguments": null,
+    "fixes": null,
+    "suggests": null,
+    "alternate_url": "https://hh.ru/search/vacancy?enable_snippets=true&items_on_page=4&text=python"
+}
