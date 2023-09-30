@@ -2,23 +2,6 @@ from src.abstractions.serializable import Serializable
 from src.entities import Currency, MIN_CURRENCY, MAX_CURRENCY
 
 
-class VacancyAttributes:
-    def __init__(self):
-        self._data = {}
-
-    def __getitem__(self, name: str):
-        if name.lower() in self._data:
-            return self._data[name]
-        return None
-
-    def __setitem__(self, name: str, value):
-        name = name.lower()
-        self._data[name] = value
-
-    def __iter__(self):
-        return iter(self._data)
-
-
 class Salary(Serializable):
     def __init__(self, salary_from: Currency = None, salary_to: Currency = None):
         self.__from = salary_from
@@ -40,6 +23,11 @@ class Salary(Serializable):
         high = MAX_CURRENCY if self.__to is None else self.__to
 
         return low, high
+
+    def __eq__(self, other):
+        if issubclass(other.__class__, self.__class__):
+            return (self.salary_from == other.salary_from and
+                    self.salary_to == other.salary_to)
 
     def __lt__(self, other):
         if not issubclass(other.__class__, self.__class__):
@@ -89,7 +77,14 @@ class Vacancy(Serializable):
         self._description = description
         self._title = title
         self._url = url
-        self._attributes = VacancyAttributes()
+
+    def __eq__(self, other):
+        if issubclass(other.__class__, self.__class__):
+            return (self.title == other.title and
+                    self.url == other.url and
+                    self.description == other.description and
+                    self.salary == other.salary)
+        return False
 
     def __lt__(self, other):
         if issubclass(other, self.__class__):
@@ -122,10 +117,6 @@ class Vacancy(Serializable):
     @property
     def url(self):
         return self._url
-
-    @property
-    def attributes(self) -> VacancyAttributes:
-        return self._attributes
 
     def to_dict(self) -> dict:
         return {
