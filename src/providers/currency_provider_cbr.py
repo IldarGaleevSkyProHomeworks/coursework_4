@@ -1,10 +1,10 @@
-from src.abstractions import CurrencyProvider
+from src.abstractions.currency_provider import CurrencyProvider
 from datetime import datetime, timedelta
 from src.providers.http_request_provider_base import HttpRequestProviderBase
 
 
 class CurrencyProviderCBR(CurrencyProvider):
-    __currency_data = None
+    _currency_data = None
     __url = 'https://www.cbr-xml-daily.ru/daily_json.js'
 
     _last_update_date = datetime.fromtimestamp(0)
@@ -18,16 +18,16 @@ class CurrencyProviderCBR(CurrencyProvider):
     @classmethod
     def update_data(cls):
         try:
-            cls.__currency_data = cls.http_request_provider.get_data_dict(url=cls.__url, timeout=cls.request_timeout)
-            cls.__last_update_date = datetime.now()
+            cls._currency_data = cls.http_request_provider.get_data_dict(url=cls.__url, timeout=cls.request_timeout)
+            cls._last_update_date = datetime.now()
         except Exception as e:
             raise Exception("Currency data update error") from e
 
     @classmethod
     def get_data(cls):
-        if cls.__currency_data is None or (datetime.now() - cls._last_update_date) > cls.data_update_interval:
+        if cls._currency_data is None or (datetime.now() - cls._last_update_date) > cls.data_update_interval:
             cls.update_data()
-        return cls.__currency_data
+        return cls._currency_data
 
     @classmethod
     def _get_price_base_curr(cls, code: str):
