@@ -1,4 +1,5 @@
 import os.path
+import shutil
 
 from src.providers import CurrencyProviderCBR, VacancyProviderHeadHunter
 from src.entities import Currency
@@ -8,6 +9,7 @@ from tests.utils.mock_currency_http_request_provider import MockCurrencyHttpRequ
 from tests.utils.mock_vacancy_provider_hh import MockVacancyProviderHeadHunter
 
 TEST_DATA_DIR = os.path.join('tests', 'data')
+FAKE_FS_PATH = "fakefs/"
 
 
 @pytest.fixture
@@ -39,3 +41,11 @@ def mocked_vacancy_provider_head_hunter():
     yield VacancyProviderHeadHunter
 
     VacancyProviderHeadHunter.http_request_provider = default_provider
+
+
+@pytest.fixture(scope="module")
+def fake_fs():
+    if os.path.exists(FAKE_FS_PATH):
+        shutil.rmtree(FAKE_FS_PATH)
+    os.makedirs(FAKE_FS_PATH, exist_ok=True)
+    yield FAKE_FS_PATH
