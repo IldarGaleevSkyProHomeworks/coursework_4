@@ -97,7 +97,8 @@ class Vacancy(Serializable):
     def __str__(self):
 
         if self.salary is not None:
-            s = f' Зарплата: {self.salary}'
+            s = str(self.salary)
+            s = f' Зарплата: {s if s else "Не указано"}'
         else:
             s = ''
         return f'{self.title}{s}'
