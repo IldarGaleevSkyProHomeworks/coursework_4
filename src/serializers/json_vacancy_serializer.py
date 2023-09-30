@@ -14,5 +14,5 @@ class JsonVacancySerializer(VacancySerializer):
     def save_list_to_file(cls, data: list[Vacancy], file_name: str, encoding: str = 'UTF-8', **kwargs):
         data_list = [item.to_dict() for item in data]
         with open(file_name, 'w', encoding=encoding) as file:
-            dump(data_list, file, **kwargs)
+            dump(data_list, file, indent=2, ensure_ascii=False,  **kwargs)
 
