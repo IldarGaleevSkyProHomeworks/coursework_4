@@ -1,0 +1,1 @@
+from src.serializers.json_vacancy_serializer import JsonVacancySerializer
