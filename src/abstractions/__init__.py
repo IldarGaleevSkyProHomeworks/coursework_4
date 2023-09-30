@@ -1,2 +1,3 @@
 from src.abstractions.currency_provider import CurrencyProvider
 from src.abstractions.http_request_provider import HttpRequestProvider
+from src.abstractions.serializable import Serializable

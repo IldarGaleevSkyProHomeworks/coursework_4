@@ -42,3 +42,15 @@ def test_currency_compare(mocked_currency):
 
     with pytest.raises(TypeError):
         _ = 2 >= currency1
+
+
+def test_serialize(mocked_currency):
+    currency = Currency(1, 'RUB')
+
+    assert currency.to_dict() == {'currency': 'RUB', 'value': 1.0}
+
+
+def test_deserialize(mocked_currency):
+    currency = Currency.from_dict({'currency': 'RUB', 'value': 1.0})
+    assert currency.value == 1
+    assert currency.code == 'RUB'

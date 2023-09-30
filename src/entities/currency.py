@@ -1,7 +1,8 @@
+from src.abstractions.serializable import Serializable
 from src.abstractions.currency_provider import CurrencyProvider
 
 
-class Currency:
+class Currency(Serializable):
     base_currency = 'RUB'
     currency_provider: CurrencyProvider = None
     """ Currency convert provider """
@@ -57,6 +58,18 @@ class Currency:
     @property
     def code(self):
         return self._currency_code
+
+    def to_dict(self) -> dict:
+        return {
+            "value": self.value,
+            "currency": self.code
+        }
+
+    @classmethod
+    def from_dict(cls, data: dict) -> any:
+        if data is None or data.get("value", None) is None:
+            return None
+        return cls(float(data["value"]), data["currency"])
 
 
 MIN_CURRENCY = Currency(0.0, Currency.base_currency)

@@ -1,3 +1,4 @@
+from src.abstractions.serializable import Serializable
 from src.entities import Currency, MIN_CURRENCY, MAX_CURRENCY
 
 
@@ -18,7 +19,7 @@ class VacancyAttributes:
         return iter(self._data)
 
 
-class Salary:
+class Salary(Serializable):
     def __init__(self, salary_from: Currency = None, salary_to: Currency = None):
         self.__from = salary_from
         self.__to = salary_to
@@ -58,8 +59,24 @@ class Salary:
 
         return l1 <= l2 or h1 <= h2
 
+    def to_dict(self) -> dict:
 
-class Vacancy:
+        return {
+            "from": None if self.salary_from is None else self.salary_from.to_dict(),
+            "to": None if self.salary_to is None else self.salary_to.to_dict()
+        }
+
+    @classmethod
+    def from_dict(cls, data: dict) -> any:
+        if data is None:
+            return None
+        return cls(
+            salary_from=Currency.from_dict(data.get('from', None)),
+            salary_to=Currency.from_dict(data.get('to', None)),
+        )
+
+
+class Vacancy(Serializable):
 
     def __init__(self, title: str, description: str = None, salary: Salary = None, url: str = None):
         self._salary = salary
@@ -95,3 +112,23 @@ class Vacancy:
     @property
     def attributes(self) -> VacancyAttributes:
         return self._attributes
+
+    def to_dict(self) -> dict:
+        return {
+            "title": self.title,
+            "description": self.description,
+            "salary": None if self.salary is None else self.salary.to_dict(),
+            "url": self.url
+        }
+
+    @classmethod
+    def from_dict(cls, data: dict) -> any:
+        if data is None:
+            return None
+
+        return cls(
+            title=data.get('title', None),
+            description=data.get('description', None),
+            url=data.get('url', None),
+            salary=Salary.from_dict(data.get('salary', None))
+        )
