@@ -59,6 +59,12 @@ class Salary(Serializable):
 
         return l1 <= l2 or h1 <= h2
 
+    def __str__(self):
+        res = '' if self.salary_from is None else f'от {str(self.salary_from)}'
+        res += '' if self.salary_to is None else f' до {str(self.salary_to)}'
+
+        return res.lstrip()
+
     def to_dict(self) -> dict:
 
         return {
@@ -92,6 +98,14 @@ class Vacancy(Serializable):
     def __le__(self, other):
         if issubclass(other, self.__class__):
             return self.salary <= other.salary
+
+    def __str__(self):
+
+        if self.salary is not None:
+            s = f' Зарплата: {self.salary}'
+        else:
+            s = ''
+        return f'{self.title}{s}'
 
     @property
     def salary(self) -> Salary | None:
