@@ -13,6 +13,9 @@ class SearchResult(NamedTuple):
 
 
 class VacancyProvider(ABC, HttpRequested):
+    """
+    Provide methods for search vacancies
+    """
     @abstractmethod
     def get_vacancies(self, search_text=None, page_num=None, per_page=None, **kwargs) -> SearchResult:
         """

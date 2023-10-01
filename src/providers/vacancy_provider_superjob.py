@@ -8,6 +8,10 @@ from src.providers.http_request_provider_base import HttpRequestProviderBase
 
 
 class VacancyProviderSuperjob(VacancyProvider):
+    """
+    Provide vacancies from SuperJob.ru
+    """
+
     DEFAULT_PER_PAGE = 20
     API_KEY = os.getenv('API_KEY_SUPERJOB')
 

@@ -4,6 +4,9 @@ from src.abstractions.http_request_provider import HttpRequested
 
 
 class CurrencyProvider(ABC, HttpRequested):
+    """
+    Provide methods for currency operations
+    """
 
     @classmethod
     @abstractmethod

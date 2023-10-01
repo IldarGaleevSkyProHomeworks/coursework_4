@@ -5,6 +5,10 @@ from src.providers.http_request_provider_base import HttpRequestProviderBase
 
 
 class VacancyProviderHeadHunter(VacancyProvider):
+    """
+    Provide vacancies from HeadHunter.ru
+    """
+
     http_request_provider = HttpRequestProviderBase
 
     _base_url = 'https://api.hh.ru'

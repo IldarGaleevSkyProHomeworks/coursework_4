@@ -4,6 +4,10 @@ from src.providers.http_request_provider_base import HttpRequestProviderBase
 
 
 class CurrencyProviderCBR(CurrencyProvider):
+    """
+    Provide currency info from Bank of Russia
+    """
+
     _currency_data = None
     __url = 'https://www.cbr-xml-daily.ru/daily_json.js'
 
