@@ -28,5 +28,5 @@ class VacancyProvider(ABC, HttpRequested):
 
     @property
     @abstractmethod
-    def provider_name(self):
+    def provider_name(self) -> str:
         pass
