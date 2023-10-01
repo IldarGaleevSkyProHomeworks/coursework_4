@@ -82,6 +82,7 @@ def search_vacancy(composer: VacancyComposer):
 
         return None
 
+    print("Нажмите ctrl + c для завершения\n")
     keyword = input("Введите ключевые слова для поиска\n> ")
 
     providers = get_list(f"Укажите провайдеров через запятую: {', '.join(composer.provider_names)}")
