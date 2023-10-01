@@ -14,6 +14,7 @@
  - [SuperJob](/src/providers/vacancy_provider_superjob.py)
    - [Сайт](https://superjob.ru)
    - [API](https://api.superjob.ru/)
+   - В переменную окружения `API_KEY_SUPERJOB` необходимо передать API ключ
 
 ## Курс валют
 
