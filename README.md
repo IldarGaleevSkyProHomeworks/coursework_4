@@ -18,6 +18,9 @@
 
 ## Курс валют
 
-Зарплаты конвертируются по актуальному курсу валют по данным [Банка России](https://cbr.ru/)
+Реализуйте класс [CurrencyProvider](src/abstractions/currency_provider.py) для добавления нового источника курса валют.
+Передайте в качестве аргумента `currency_provider` конструктора `VacancyComposer` в файле [main.py](main.py)
+
+По умолчанию зарплаты конвертируются по актуальному курсу валют по данным [Банка России](https://cbr.ru/)
 
 Используется [API](https://www.cbr-xml-daily.ru/#json) с ресурса [www.cbr-xml-daily.ru](https://www.cbr-xml-daily.ru)
