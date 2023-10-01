@@ -64,7 +64,7 @@ def print_table(data: dict[str, SearchResult], top_count=None):
 
 def search_vacancy(composer: VacancyComposer):
     def get_input(prompt: str) -> str:
-        r = input(prompt + '\n(оставьте пустым по-умолчанию)> ')
+        r = input(prompt + '\n(оставьте пустым по умолчанию)> ')
         print()
         return r
 
